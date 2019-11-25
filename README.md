@@ -52,4 +52,4 @@ python convert_to_nii.py
 [codecov-image]: <https://codecov.io/gh/woctezuma/playing-with-simpleitk/branch/master/graph/badge.svg>
 
 [codacy]: <https://www.codacy.com/app/woctezuma/playing-with-simpleitk>
-[codacy-image]: <https://api.codacy.com/project/badge/Grade/TODO>
+[codacy-image]: <https://api.codacy.com/project/badge/Grade/df2510e9694b409d94ae5ddc36d7f75b>
