@@ -63,8 +63,20 @@ def get_path_to_ground_truth(patient_no):
     return path_to_ground_truth
 
 
-def get_output_image_name(patient_no, output_file_format):
-    output_image_name = get_data_root() + '/' + str(patient_no) + output_file_format
+def get_output_folder(data_root=None):
+    if data_root is None:
+        data_root = get_data_root()
+
+    output_folder = data_root + 'output/'
+
+    Path(output_folder).mkdir(exist_ok=True)
+
+    return output_folder
+
+
+def get_output_image_name(patient_no, output_file_format, data_root=None):
+    output_folder = get_output_folder(data_root)
+    output_image_name = output_folder + str(patient_no) + output_file_format
 
     return output_image_name
 
@@ -75,8 +87,9 @@ def get_ground_truth_suffix():
     return ground_truth_suffix
 
 
-def get_output_ground_truth_name(patient_no, output_file_format):
-    output_ground_truth_name = get_data_root() + '/' + str(patient_no) + get_ground_truth_suffix() + output_file_format
+def get_output_ground_truth_name(patient_no, output_file_format, data_root=None):
+    output_folder = get_output_folder(data_root)
+    output_ground_truth_name = output_folder + str(patient_no) + get_ground_truth_suffix() + output_file_format
 
     return output_ground_truth_name
 
