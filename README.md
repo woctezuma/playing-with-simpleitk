@@ -41,8 +41,8 @@ python convert_to_nii.py
 
 <!-- Definitions -->
 
-[build]: <https://travis-ci.org/woctezuma/playing-with-simpleitk>
-[build-image]: <https://travis-ci.org/woctezuma/playing-with-simpleitk.svg?branch=master>
+[build]: <https://github.com/woctezuma/playing-with-simpleitk/actions>
+[build-image]: <https://github.com/woctezuma/playing-with-simpleitk/workflows/pythonapp/badge.svg?branch=master>
 
 [pyup]: <https://pyup.io/repos/github/woctezuma/playing-with-simpleitk/>
 [dependency-image]: <https://pyup.io/repos/github/woctezuma/playing-with-simpleitk/shield.svg>
