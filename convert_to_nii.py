@@ -10,23 +10,26 @@ def get_data_root():
     return data_root
 
 
-def get_data_path():
+def get_data_path(data_root=None):
     # Data downloaded from:
     #   https://chaos.grand-challenge.org/Combined_Healthy_Abdominal_Organ_Segmentation/
 
-    data_path = get_data_root() + 'Train_Sets/'
+    if data_root is None:
+        data_root = get_data_root()
+
+    data_path = data_root + 'Train_Sets/'
 
     return data_path
 
 
-def get_definition_file_name():
-    definition_file_name = get_data_path() + 'definitions.txt'
+def get_definition_file_name(data_root=None):
+    definition_file_name = get_data_path(data_root) + 'definitions.txt'
 
     return definition_file_name
 
 
-def get_patient_indices(verbose=True):
-    definition_file_name = get_definition_file_name()
+def get_patient_indices(verbose=True, data_root=None):
+    definition_file_name = get_definition_file_name(data_root)
 
     with open(definition_file_name, 'r') as f:
         lines = f.readlines()
@@ -45,20 +48,20 @@ def get_patient_indices(verbose=True):
     return patient_indices
 
 
-def get_patient_data_path(patient_no):
-    patient_data_path = get_data_path() + 'CT/' + str(patient_no) + '/'
+def get_patient_data_path(patient_no, data_root=None):
+    patient_data_path = get_data_path(data_root) + 'CT/' + str(patient_no) + '/'
 
     return patient_data_path
 
 
-def get_path_to_image(patient_no):
-    path_to_image = get_patient_data_path(patient_no) + '/DICOM_anon/'
+def get_path_to_image(patient_no, data_root=None):
+    path_to_image = get_patient_data_path(patient_no, data_root) + '/DICOM_anon/'
 
     return path_to_image
 
 
-def get_path_to_ground_truth(patient_no):
-    path_to_ground_truth = get_patient_data_path(patient_no) + 'Ground/'
+def get_path_to_ground_truth(patient_no, data_root=None):
+    path_to_ground_truth = get_patient_data_path(patient_no, data_root) + 'Ground/'
 
     return path_to_ground_truth
 
@@ -97,7 +100,8 @@ def get_output_ground_truth_name(patient_no, output_file_format, data_root=None)
 def convert_stack_of_slices_to_nii_image(patient_no,
                                          keyword,  # either 'images' or 'ground truth'
                                          input_file_format=None,
-                                         output_file_format=None):
+                                         output_file_format=None,
+                                         data_root=None):
     if input_file_format is None:
         if keyword == 'images':
             input_file_format = '.dcm'
@@ -108,11 +112,11 @@ def convert_stack_of_slices_to_nii_image(patient_no,
         output_file_format = '.nii.gz'
 
     if keyword == 'images':
-        input_directory = get_path_to_image(patient_no)
-        output_file_name = get_output_image_name(patient_no, output_file_format)
+        input_directory = get_path_to_image(patient_no, data_root)
+        output_file_name = get_output_image_name(patient_no, output_file_format, data_root)
     else:
-        input_directory = get_path_to_ground_truth(patient_no)
-        output_file_name = get_output_ground_truth_name(patient_no, output_file_format)
+        input_directory = get_path_to_ground_truth(patient_no, data_root)
+        output_file_name = get_output_ground_truth_name(patient_no, output_file_format, data_root)
 
     if Path(output_file_name).is_file():
         print('{} data is already processed for patient n°{}'.format(
@@ -139,16 +143,17 @@ def convert_stack_of_slices_to_nii_image(patient_no,
     return
 
 
-def main():
+def main(data_root=None):
     output_file_format = '.nii.gz'
 
-    patient_indices = get_patient_indices()
+    patient_indices = get_patient_indices(data_root=data_root)
 
     for keyword in ['images', 'ground truth']:
         for patient_no in patient_indices:
             convert_stack_of_slices_to_nii_image(patient_no,
                                                  keyword=keyword,
-                                                 output_file_format=output_file_format)
+                                                 output_file_format=output_file_format,
+                                                 data_root=data_root)
 
     return True
 
