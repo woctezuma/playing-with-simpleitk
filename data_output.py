@@ -7,7 +7,10 @@ def get_image_modality_convention_dict():
     # We index each modality used in our dataset.
 
     modality_dict = dict()
-    modality_dict['ct'] = 1
+
+    # The first modality is indexed with 0, following convention in:
+    #   https://github.com/MIC-DKFZ/nnUNet/tree/master/nnunet/dataset_conversion
+    modality_dict['ct'] = 0
 
     return modality_dict
 
