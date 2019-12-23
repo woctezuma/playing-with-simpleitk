@@ -26,18 +26,43 @@ NB: As of November 2019, the PyPI package of SimpleITK does not work with Python
 
 ## Usage
 
-Convert data from [DICOM](https://en.wikipedia.org/wiki/DICOM) to [NifTI](https://en.wikipedia.org/wiki/Neuroimaging_Informatics_Technology_Initiative):
+### Prepare data
+
+-   Convert data from [DICOM](https://en.wikipedia.org/wiki/DICOM) to [NifTI](https://en.wikipedia.org/wiki/Neuroimaging_Informatics_Technology_Initiative) with SimpleITK:
 ```bash
 python convert_to_nii.py
 ```
+
+-   Follow instructions for the folder structure of data, as [detailed for nnU-Net](https://github.com/MIC-DKFZ/nnUNet/tree/master/nnunet/dataset_conversion).
+
+### Train nnU-Net
+
+-   Connect to a session of [Google Colaboratory](https://colab.research.google.com/)
+
+-   Run the [`playing_with_pytorch.ipynb`](playing_with_pytorch.ipynb) notebook.
+
+Training for 1 epoch with:
+-   a training dataset of 5 images downsampled to 4x4x4mm,
+-   no cross-validation (in which case the validation dataset is the same as the training dataset).
+can take 2m30s, but up to 10m, depending on the machine which you obtained.
+
+Results obtained after ~ 100 epochs are shown below:
+
+![Training](https://raw.githubusercontent.com/wiki/woctezuma/playing-with-simpleitk/img/training.png)
+
+where:
+-   training loss is in blue,
+-   validation loss is in red,
+-   evaluation metric (to maximize) is in green.
 
 ## References
 
 -   [Github repository](https://github.com/SimpleITK/SimpleITK) for SimpleITK,
 -   [Notebooks](https://github.com/InsightSoftwareConsortium/SimpleITK-Notebooks) for SimpleITK,
 -   [Documentation](https://itk.org/SimpleITKDoxygen/html/index.html) for SimpleITK,
+-   [nnU-Net](https://github.com/MIC-DKFZ/nnUNet),
 -   [Combined (CT-MR) Healthy Abdominal Organ Segmentation](https://chaos.grand-challenge.org/Combined_Healthy_Abdominal_Organ_Segmentation/) (CHAOS) challenge,
--   Evaluation of segmentation results with [tools](https://github.com/emrekavur/CHAOS-evaluation) provided by organizers of CHAOS.   
+-   Evaluation of segmentation results with [tools](https://github.com/emrekavur/CHAOS-evaluation) provided by organizers of CHAOS.
 
 <!-- Definitions -->
 
