@@ -41,10 +41,11 @@ python convert_to_nii.py
 
 -   Run the [`playing_with_pytorch.ipynb`](playing_with_pytorch.ipynb) notebook.
 
-Training for 1 epoch with:
+Training was performed with:
 -   a training dataset of 5 images downsampled to 4x4x4mm,
--   no cross-validation (in which case the validation dataset is the same as the training dataset).
-can take 2m30s, but up to 10m, depending on the machine which you obtained.
+-   no cross-validation (in which case the validation dataset is the same as the training dataset to find the best checkpoint and to decrease the learning rate).
+
+Training for 1 epoch can require 2m30s, but up to 10m, depending on the machine which you obtained.
 
 Results obtained after ~ 100 epochs are shown below:
 
@@ -54,6 +55,10 @@ where:
 -   training loss is in blue,
 -   validation loss is in red,
 -   evaluation metric (to maximize) is in green.
+
+In terms of Dice scores, the average is:
+-   99.1% for the 5 patients of the training data,
+-   94.8% for the 15 patients of the validation data (training data not used).
 
 ## References
 
