@@ -39,7 +39,7 @@ python convert_to_nii.py
 
 -   Connect to a session of [Google Colaboratory](https://colab.research.google.com/)
 
--   Run the [`playing_with_pytorch.ipynb`](playing_with_pytorch.ipynb) notebook.
+-   Run the [`playing_with_pytorch.ipynb`][playing_with_pytorch] notebook.
 
 Training was performed with:
 -   a training dataset of 5 images downsampled to 4x4x4mm,
@@ -83,3 +83,5 @@ In terms of Dice scores, the average is:
 
 [codacy]: <https://www.codacy.com/app/woctezuma/playing-with-simpleitk>
 [codacy-image]: <https://api.codacy.com/project/badge/Grade/df2510e9694b409d94ae5ddc36d7f75b>
+
+[playing_with_pytorch]: <https://colab.research.google.com/github/woctezuma/playing-with-simpleitk/blob/master/playing_with_pytorch.ipynb>
