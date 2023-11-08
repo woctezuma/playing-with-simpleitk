@@ -31,7 +31,7 @@ NB: As of November 2019, the PyPI package of SimpleITK does not work with Python
 python convert_to_nii.py
 ```
 
--   Follow instructions for the folder structure of data, as [detailed for nnU-Net](https://github.com/MIC-DKFZ/nnUNet/tree/master/nnunet/dataset_conversion).
+-   Follow instructions for the folder structure of data, as [detailed for nnU-Net](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format.md).
 
 ### Train nnU-Net
 
@@ -63,7 +63,7 @@ In terms of Dice scores, the average is:
 
 -   [Github repository](https://github.com/SimpleITK/SimpleITK) for SimpleITK,
 -   [Notebooks](https://github.com/InsightSoftwareConsortium/SimpleITK-Notebooks) for SimpleITK,
--   [Documentation](https://itk.org/SimpleITKDoxygen/html/index.html) for SimpleITK,
+-   [Documentation](https://simpleitk.readthedocs.io/) for SimpleITK,
 -   [nnU-Net](https://github.com/MIC-DKFZ/nnUNet),
 -   [Combined (CT-MR) Healthy Abdominal Organ Segmentation](https://chaos.grand-challenge.org/Combined_Healthy_Abdominal_Organ_Segmentation/) (CHAOS) challenge,
 -   Evaluation of segmentation results with [tools](https://github.com/emrekavur/CHAOS-evaluation) provided by organizers of CHAOS.
