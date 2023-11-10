@@ -1,26 +1,26 @@
-# Playing with SimpleITK
+# Playing with SimpleITK and nnU-Net
 
 [![Build status][build-image]][build]
 [![Code coverage][codecov-image]][codecov]
 [![Code Quality][codacy-image]][codacy]
 
-This repository contains Python code to play with [SimpleITK](https://github.com/SimpleITK/SimpleITK).
+This repository contains Python code to play with [SimpleITK](https://github.com/SimpleITK/SimpleITK) and [nnU-Net](https://github.com/MIC-DKFZ/nnUNet).
 
 ## Requirements
 
--   Install version 3.7 of [Python 3.X](https://www.python.org/downloads/),
+-   Install [Python 3.X](https://www.python.org/downloads/),
 -   Install the required packages:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-NB: As of November 2019, the PyPI package of SimpleITK does not work with Python 3.8.
-
 ## Data
 
 -   Download data from the [Combined (CT-MR) Healthy Abdominal Organ Segmentation](https://chaos.grand-challenge.org/Combined_Healthy_Abdominal_Organ_Segmentation/) (CHAOS) challenge,
 -   Extract the archive to `data/`.
+
+Alternatively, data can be found in [**Releases**](https://github.com/woctezuma/playing-with-simpleitk/releases) on Github.
 
 ## Usage
 
@@ -34,8 +34,6 @@ python convert_to_nii.py
 -   Follow instructions for the folder structure of data, as [detailed for nnU-Net](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/dataset_format.md).
 
 ### Train nnU-Net
-
--   Connect to a session of [Google Colaboratory](https://colab.research.google.com/)
 
 -   Run the [`playing_with_pytorch.ipynb`][playing_with_pytorch] notebook.
 [![Open In Colab][colab-badge]][playing_with_pytorch]
